@@ -57,5 +57,5 @@ app.post('/api/email', (req, res, next) => {
         });
 });
 
-
-app.listen(4000, '0.0.0.0');
+exports.app=functions.https.onRequest(app);
+// app.listen(4000, '0.0.0.0');
