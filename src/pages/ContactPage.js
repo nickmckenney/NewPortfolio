@@ -41,7 +41,7 @@ class ContactPage extends React.Component {
             disabled: true
         });
 
-        Axios.post('/api/email', this.state)
+        Axios.post('http://localhost:4000/api/email', this.state)
             .then(res => {
                 if(res.data.success) {
                     this.setState({
@@ -70,20 +70,35 @@ class ContactPage extends React.Component {
             <div>
                 <Hero title={this.props.title} />
 
-                <form name="contact" method="post">
-          <p>
-            <label>Your Name: <input type="text" name="name"/></label>
-          </p>
-          <p>
-            <label>Your Email: <input type="email" name="email"/></label>
-          </p>
-          <p>
-            <label>Message: <textarea name="message"></textarea></label>
-          </p>
-          <p>
-            <button type="submit">Send</button>
-          </p>
-        </form>
+                <Content>
+                    <Form onSubmit={this.handleSubmit}>
+                        <Form.Group>
+                            <Form.Label htmlFor="full-name">Full Name</Form.Label>
+                            <Form.Control id="full-name" name="name" type="text" value={this.state.name} onChange={this.handleChange} />
+                        </Form.Group>
+
+
+                        <Form.Group>
+                            <Form.Label htmlFor="email">Email</Form.Label>
+                            <Form.Control id="email" name="email" type="email" value={this.state.email} onChange={this.handleChange} />
+                        </Form.Group>
+
+
+                        <Form.Group>
+                            <Form.Label htmlFor="message">Message</Form.Label>
+                            <Form.Control id="message" name="message" as="textarea"rows="3" value={this.state.message} onChange={this.handleChange} />
+                        </Form.Group>
+
+
+                        <Button className="d-inline-block" variant="primary" type="submit" disabled={this.state.disabled}>
+                            Send
+                        </Button>
+
+
+                        {this.state.emailSent === true && <p className="d-inline success-msg">Email Sent</p>}
+                        {this.state.emailSent === false && <p className="d-inline err-msg">Email Not Sent</p>}
+                    </Form>
+                </Content>
             </div>
         );
     }
