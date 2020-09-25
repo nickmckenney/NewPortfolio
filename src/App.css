@@ -7,7 +7,9 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+.py-5{
+  text-align: center;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -23,6 +25,24 @@
   color: #61dafb;
 }
 
+.flex {
+  display: flex;
+  flex-direction: row;
+  grid-row-gap: 10px;
+  row-gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.projectDescriptionAbout {
+  
+  text-align: center;
+  box-shadow: 0 100px 35px rgba(50, 50, 93, 0.1), 0 20px 15px;
+  margin-top: 5%;
+ 
+  border-radius: 24px;
+  border: dashed;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

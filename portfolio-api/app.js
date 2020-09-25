@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 
 
 app.get('/api', (req, res, next) => {
-    res.send('API Status: I\'m awesome')
+    res.send('API is Working!')
 });
 
 
@@ -29,11 +29,11 @@ app.post('/api/email', (req, res, next) => {
 
     console.log(req.body);
 
-    sendGrid.setApiKey('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');
+    sendGrid.setApiKey('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');
     const msg = {
-        to: 'garrettlove5346@gmail.com',
+        to: 'mckenney2001@gmail.com',
         from: req.body.email,
-        subject: 'Website Contact',
+        subject: 'Potential Recuirter :) ',
         text: req.body.message
     }
 
@@ -43,7 +43,6 @@ app.post('/api/email', (req, res, next) => {
             res.status(200).json({
                 success: true
             });
-
         })
         .catch(err => {
 
