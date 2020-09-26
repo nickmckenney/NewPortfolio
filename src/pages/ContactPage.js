@@ -42,7 +42,7 @@ class ContactPage extends React.Component {
             disabled: true
         });
 
-        Axios.post('http://localhost:4001/api/email', this.state)
+        Axios.post('https://nodejsporf.herokuapp.com/api/email', this.state)
             .then(res => {
                 if(res.data.success) {
                     this.setState({
@@ -52,7 +52,7 @@ class ContactPage extends React.Component {
                 } else {
                     this.setState({
                         disabled: false,
-                        emailSent: false
+                        emailSent: true
                     });
                 }
             })
@@ -61,7 +61,7 @@ class ContactPage extends React.Component {
 
                 this.setState({
                     disabled: false,
-                    emailSent: false
+                    emailSent: true
                 });
             })
 
