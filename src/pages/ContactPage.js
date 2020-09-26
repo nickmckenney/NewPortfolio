@@ -16,6 +16,7 @@ class ContactPage extends React.Component {
             name: '',
             email: '',
             message: '',
+            subject:'',
             disabled: false,
             emailSent: null,
         }
@@ -84,7 +85,6 @@ class ContactPage extends React.Component {
                             <Form.Control id="email" name="email" type="email" value={this.state.email} onChange={this.handleChange} />
                         </Form.Group>
                         
-
                         <Form.Group>
                             <Form.Label htmlFor="message">Message</Form.Label>
                             <Form.Control id="message" name="message" as="textarea"rows="3" value={this.state.message} onChange={this.handleChange} />
